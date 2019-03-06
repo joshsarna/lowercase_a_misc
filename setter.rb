@@ -6,11 +6,11 @@ class Person
   end
 
   def grow_old
-    age = age + 10
+    age = @age + 10
   end
 end
 
 sandra = Person.new(age: 45)
 sandra.grow_old
 
-p sandra  # => undefined method `+' for nil:NilClass (NoMethodError)
+p sandra  # => #<Person:0x00007fd5ea13c2d0 @age=45>
