@@ -6,7 +6,7 @@ class Person
   end
 
   def grow_old
-    age = @age + 10
+    self.age = self.age + 10
   end
 end
 
