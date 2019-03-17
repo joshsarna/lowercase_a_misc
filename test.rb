@@ -105,4 +105,4 @@ end
 p number_to_word(48105) # => "forty eight thousand one hundred five"
 p number_to_word(0)  # => "zero"
 p number_to_word(1000000)  # => "one million"
-p number_to_word(890000)  # => "one million"
+p number_to_word(890000)  # => "eight hundred ninety thousand"
