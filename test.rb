@@ -55,6 +55,19 @@ def number_to_word(n)
       number_as_words << numbers_to_words[number_of_one_thousands] + " "
     end
     number_as_words << numbers_to_words [1000] + " "
+  else
+    number_of_hundred_thousands = number_of_thousands / 100
+    number_of_thousands %= 100
+    number_of_ten_thousands = number_of_thousands / 10
+    number_of_one_thousands = number_of_thousands % 10
+    number_as_words << numbers_to_words[number_of_hundred_thousands] + " " + numbers_to_words[100] + " "
+    if number_of_ten_thousands > 0
+      number_as_words << numbers_to_words[number_of_ten_thousands * 10] + " "
+    end
+    if number_of_one_thousands > 0
+      number_as_words << numbers_to_words[number_of_one_thousands] + " "
+    end
+    number_as_words << numbers_to_words [1000] + " "
   end
   number %= 1000
   number_of_hundreds = number / 100
@@ -67,6 +80,9 @@ def number_to_word(n)
       number_as_words << numbers_to_words[0]
       return number_as_words
     else
+      if number_as_words[-1] == " "
+        number_as_words[-1] = ""
+      end
       return number_as_words
     end
   end
@@ -80,9 +96,13 @@ def number_to_word(n)
       number_as_words << numbers_to_words[number_of_ones]
     end
   end
+  if number_as_words[-1] == " "
+    number_as_words[-1] = ""
+  end
   return number_as_words
 end
 
 p number_to_word(48105) # => "forty eight thousand one hundred five"
 p number_to_word(0)  # => "zero"
 p number_to_word(1000000)  # => "one million"
+p number_to_word(890000)  # => "one million"
